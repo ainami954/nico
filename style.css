@@ -335,6 +335,64 @@ footer{background:var(--gold);color:#fff;font-size:12.5px;padding:26px 0;text-al
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;background:var(--brown);}
 .callbar a{display:block;text-align:center;color:#fff;text-decoration:none;padding:15px 10px;font-size:16px;letter-spacing:.08em;}
 
+/* ---------- ギャラリー拡大表示 ---------- */
+.gallery-lightbox{
+  width:100vw;
+  max-width:none;
+  max-height:100dvh;
+  margin:auto 0;
+  padding:0;
+  border:0;
+  background:transparent;
+}
+.gallery-lightbox::backdrop{background:rgba(45,40,37,.78);}
+.lightbox-panel{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  max-height:100dvh;
+  padding:52px 16px 18px;
+  background:var(--paper);
+}
+.lightbox-stage{
+  position:relative;
+  width:min(100%,calc((100dvh - 120px) * .6667),600px);
+  aspect-ratio:2/3;
+}
+.lightbox-image{display:block;width:100%;height:100%;object-fit:contain;}
+.lightbox-animal{
+  position:absolute;
+  top:25%;
+  left:50%;
+  width:30%;
+  height:auto;
+  transform:translate(-50%,-50%);
+  filter:drop-shadow(0 3px 5px rgba(68,61,57,.14));
+  pointer-events:none;
+}
+.gallery-lightbox.gallery-child-three .lightbox-animal{left:56%;top:26%;}
+.gallery-lightbox.gallery-child-seven .lightbox-animal{left:53%;top:23%;}
+.gallery-lightbox.gallery-child-family .lightbox-animal{left:29%;top:38%;width:32%;}
+.lightbox-close{
+  position:absolute;
+  top:12px;
+  right:16px;
+  z-index:2;
+  border:0;
+  border-bottom:1px solid var(--gold);
+  padding:5px 4px 4px;
+  background:transparent;
+  color:var(--ink);
+  font-family:var(--gothic);
+  font-size:14px;
+  cursor:pointer;
+}
+.lightbox-close:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+.lightbox-caption{margin:10px 0 0;font-family:var(--mincho);font-size:14px;letter-spacing:.06em;color:var(--ink-2);}
+.lightbox-open{overflow:hidden;}
+
 /* ---------- レスポンシブ ---------- */
 @media (max-width:820px){
   .sec{padding:60px 0;}
@@ -352,6 +410,8 @@ footer{background:var(--gold);color:#fff;font-size:12.5px;padding:26px 0;text-al
     gap:14px 12px;
     height:min(78svh,680px);
   }
+  .occasion-gallery .gallery-item>img,
+  .occasion-gallery .gallery-photo{cursor:zoom-in;}
   .seijin-grid,.shop-grid{grid-template-columns:1fr;gap:34px;}
   .timeline::before{left:70px;}
   .tl-item{grid-template-columns:62px 1fr;gap:0 28px;}
