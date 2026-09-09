@@ -203,6 +203,59 @@ h2{
 .plan dd{margin:0;font-family:var(--mincho);font-size:19px;font-weight:500;color:var(--brown);}
 .plan .note{font-size:12.5px;color:var(--ink-2);margin:16px 0 0;line-height:1.85;}
 
+/* ---------- 七五三 ギャラリー ---------- */
+.shichigosan-gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  gap:24px 18px;
+  height:min(72vh,620px);
+  margin-top:42px;
+}
+.gallery-item{
+  display:grid;
+  grid-template-rows:minmax(0,1fr) auto;
+  margin:0;
+  min-width:0;
+  min-height:0;
+}
+.gallery-item>img,.gallery-photo{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:0;
+  object-fit:cover;
+  background:var(--teal-wash);
+}
+.gallery-image{position:relative;min-height:0;overflow:hidden;}
+.gallery-photo{position:absolute;inset:0;}
+.gallery-animal{
+  position:absolute;
+  z-index:1;
+  top:27%;
+  left:50%;
+  width:clamp(72px,8vw,96px);
+  height:auto;
+  transform:translate(-50%,-50%);
+  filter:drop-shadow(0 3px 5px rgba(68,61,57,.14));
+}
+.gallery-child-three .gallery-photo{object-position:56% 20%;}
+.gallery-child-three .gallery-animal{left:56%;}
+.gallery-child-five .gallery-photo{object-position:50% 20%;}
+.gallery-child-seven .gallery-photo{object-position:53% 18%;}
+.gallery-child-seven .gallery-animal{left:53%;top:25%;}
+.gallery-child-family .gallery-photo{object-position:50% 50%;}
+.gallery-child-family .gallery-animal{left:33%;top:31%;width:clamp(84px,9vw,108px);}
+.gallery-item figcaption{
+  margin-top:9px;
+  padding-left:10px;
+  border-left:2px solid var(--gold);
+  font-family:var(--mincho);
+  font-size:13px;
+  letter-spacing:.06em;
+  color:var(--ink-2);
+}
+
 /* ---------- 料金リスト ---------- */
 .pricelist{border-top:1px solid var(--line);}
 .pricelist div{
@@ -289,6 +342,12 @@ footer{background:var(--gold);color:#fff;font-size:12.5px;padding:26px 0;text-al
   .vtitle{height:min(48vh,330px);}
   .hero-image{width:calc(100% - 90px);height:min(48vh,330px);}
   .plans{grid-template-columns:1fr;}
+  .shichigosan-gallery{
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(3,minmax(0,1fr));
+    gap:14px 12px;
+    height:min(78svh,680px);
+  }
   .seijin-grid,.shop-grid{grid-template-columns:1fr;gap:34px;}
   .timeline::before{left:70px;}
   .tl-item{grid-template-columns:62px 1fr;gap:0 28px;}
@@ -296,6 +355,11 @@ footer{background:var(--gold);color:#fff;font-size:12.5px;padding:26px 0;text-al
   .tl-body::before{left:-33px;}
   .callbar{display:block;}
   body{padding-bottom:54px;}
+}
+@media (max-width:480px){
+  .gallery-item figcaption{font-size:12px;letter-spacing:.03em;}
+  .gallery-animal{width:clamp(62px,20vw,82px);}
+  .gallery-child-family .gallery-animal{width:clamp(72px,23vw,92px);}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important;}
