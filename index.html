@@ -302,6 +302,32 @@ function revealVisible(){
   document.querySelectorAll('.timeline:not([hidden]) .tl-item:not(.in)').forEach(el => io.observe(el));
 }
 revealVisible();
+
+(() => {
+  const eyebrows = document.querySelectorAll('.eyebrow');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
+
+  const eyebrowObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle('eyebrow-pending', !entry.isIntersecting);
+      entry.target.classList.toggle('eyebrow-visible', entry.isIntersecting);
+    });
+  }, { threshold: 0 });
+
+  eyebrows.forEach((eyebrow) => {
+    eyebrow.classList.add('eyebrow-pending');
+    eyebrowObserver.observe(eyebrow);
+  });
+
+  reducedMotion.addEventListener('change', (event) => {
+    if (!event.matches) return;
+    eyebrowObserver.disconnect();
+    eyebrows.forEach((eyebrow) => {
+      eyebrow.classList.remove('eyebrow-pending', 'eyebrow-visible');
+    });
+  });
+})();
 </script>
 
 </body>

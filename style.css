@@ -13,6 +13,7 @@
   --paper:#ffffff;
   --paper-2:#fbfaf7;
   --line:#e7e3dd;
+  --blue: #0062B0;
 
   --mincho:"Shippori Mincho", serif;
   --gothic:"Zen Kaku Gothic New", sans-serif;
@@ -50,20 +51,23 @@ a{color:inherit;}
 
 /* 現行サイトの見出し（英字＋短い下線）を踏襲 */
 .eyebrow{
+  display:inline-block;
   font-family:var(--gothic);
   font-size:15px;font-weight:500;
   letter-spacing:.18em;
-  color:var(--teal-ink);
+  color:var(--blue);
   margin:0 0 26px;
   padding-bottom:12px;
   position:relative;
 }
 .eyebrow::after{
-  content:"";position:absolute;left:0;bottom:0;
-  width:38px;height:2px;background:var(--teal);
+  content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+  width:38px;height:2px;background:var(--gold);
 }
+.eyebrow.eyebrow-pending{opacity:0;}
+.eyebrow.eyebrow-visible{animation:eyebrow-fade-in 1s ease-out both;}
+@keyframes eyebrow-fade-in{from{opacity:0;}to{opacity:1;}}
 .center{text-align:center;}
-.center .eyebrow::after{left:50%;transform:translateX(-50%);}
 
 h2{
   font-family:var(--mincho);
@@ -296,6 +300,7 @@ footer{background:var(--gold);color:#fff;font-size:12.5px;padding:26px 0;text-al
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important;}
   .vtitle,.hero-image,.hero-side{opacity:1;}
+  .eyebrow.eyebrow-pending,.eyebrow.eyebrow-visible{opacity:1;}
   .tl-item{opacity:1;transform:none;}
   html{scroll-behavior:auto;}
 }
