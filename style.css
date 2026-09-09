@@ -234,10 +234,12 @@ h2{
   z-index:1;
   top:27%;
   left:50%;
-  width:clamp(72px,8vw,96px);
+  width:34%;
+  max-width:none;
   height:auto;
   transform:translate(-50%,-50%);
   filter:drop-shadow(0 3px 5px rgba(68,61,57,.14));
+  pointer-events:none;
 }
 .gallery-child-three .gallery-photo{object-position:56% 20%;}
 .gallery-child-three .gallery-animal{left:56%;}
@@ -245,7 +247,7 @@ h2{
 .gallery-child-seven .gallery-photo{object-position:53% 18%;}
 .gallery-child-seven .gallery-animal{left:53%;top:25%;}
 .gallery-child-family .gallery-photo{object-position:50% 50%;}
-.gallery-child-family .gallery-animal{left:33%;top:31%;width:clamp(84px,9vw,108px);}
+.gallery-child-family .gallery-animal{left:33%;top:31%;width:38%;}
 .gallery-item figcaption{
   margin-top:9px;
   padding-left:10px;
@@ -360,8 +362,6 @@ footer{background:var(--gold);color:#fff;font-size:12.5px;padding:26px 0;text-al
 }
 @media (max-width:480px){
   .gallery-item figcaption{font-size:12px;letter-spacing:.03em;}
-  .gallery-animal{width:clamp(62px,20vw,82px);}
-  .gallery-child-family .gallery-animal{width:clamp(72px,23vw,92px);}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important;}
