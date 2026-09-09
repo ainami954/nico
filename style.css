@@ -203,8 +203,8 @@ h2{
 .plan dd{margin:0;font-family:var(--mincho);font-size:19px;font-weight:500;color:var(--brown);}
 .plan .note{font-size:12.5px;color:var(--ink-2);margin:16px 0 0;line-height:1.85;}
 
-/* ---------- 七五三 ギャラリー ---------- */
-.shichigosan-gallery{
+/* ---------- 着付け ギャラリー ---------- */
+.occasion-gallery{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   grid-template-rows:repeat(2,minmax(0,1fr));
@@ -278,7 +278,6 @@ h2{
   aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
   color:var(--teal-ink);font-size:12.5px;letter-spacing:.16em;text-align:center;opacity:.8;
 }
-.photo-spaced{margin-top:42px;}
 .photo-square{aspect-ratio:1/1;}
 
 /* ---------- FAQ ---------- */
@@ -342,7 +341,7 @@ footer{background:var(--gold);color:#fff;font-size:12.5px;padding:26px 0;text-al
   .vtitle{height:min(48vh,330px);}
   .hero-image{width:calc(100% - 90px);height:min(48vh,330px);}
   .plans{grid-template-columns:1fr;}
-  .shichigosan-gallery{
+  .occasion-gallery{
     grid-template-columns:repeat(2,1fr);
     grid-template-rows:repeat(3,minmax(0,1fr));
     gap:14px 12px;
